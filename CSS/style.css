@@ -88,4 +88,13 @@ body {
       margin-top: 7rem;
     }
   }
+
+  .featurette-divider {
+    margin-top: 2%;
+    margin-bottom: 2%
+  }
   
+  .tamanoCirculos {
+      height: 200px;
+      width: 200px;
+  }

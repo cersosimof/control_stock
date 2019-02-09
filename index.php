@@ -17,8 +17,6 @@ require "componentes/header.php"
         </div>
 -->
 
-
-
         <div class="row">
             <!-- INCREMENTAR -->
             <div class="col-lg-4">

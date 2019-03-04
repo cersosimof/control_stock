@@ -1,5 +1,7 @@
 <?php
 
+require '../ConnectDb.php';
+
 class Articulo {
 
     // PROPIEDADES
@@ -9,7 +11,7 @@ class Articulo {
     private $notas;
     private $stockInicial;
     private $alerta;
-
+ 
     public function __construct(){
         $this->categoria=$_POST["categoria"];
         $this->marca=$_POST["marca"];
@@ -20,11 +22,12 @@ class Articulo {
     }
 
     function altaArticulo($categoria, $marca, $modelo, $notas, $stockInicial, $alerta){
-        require '../conexion.php';
-        $Conn = new Conexion();
-        $Conn->CreateConnection();
         $sql = "INSERT INTO articulos (id_articulo, categoria, marca, modelo, notas, stockInicial, alerta) VALUES (NULL, '$categoria', '$marca', '$modelo', '$notas', '$stockInicial', '$alerta')";
-        $resul = $Conn->ExecuteQuery($sql);
+        $instance = ConnectDb::getInstance();
+        $conn = $instance->ExecuteQuery($sql);
+            if($conn == 1) {
+                return 1;
+            }
     }
 
     // METODOS

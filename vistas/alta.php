@@ -3,7 +3,13 @@
 require "../componentes/header.php";
 require "../modelos/articulo.php";
 
+
+// if($conn) {
+//   echo "Se establecio conexion";
+// }
+
 if(isset($_GET["enviando"])){
+  
   $categoria = $_POST["categoria"];
 	$marca = $_POST["marca"];
 	$modelo = $_POST["modelo"];
@@ -12,13 +18,14 @@ if(isset($_GET["enviando"])){
   $alerta = $_POST["alerta"]; 
   
   $articuloCreado = new Articulo();
-  $articuloCreado->altaArticulo($categoria, $marca, $modelo, $notas, $stockInicial, $alerta);
+  $result = $articuloCreado->altaArticulo($categoria, $marca, $modelo, $notas, $stockInicial, $alerta);
+  echo $result;
 }
 
 
 ?>
 
-<form  action='?enviando=1' method='POST' class="needs-validation" novalidate>
+<form action='?enviando=1' method='POST' class="needs-validation" novalidate>
 
   <div class="form-row">
     <div class="col-md-4 mb-3">
@@ -51,11 +58,43 @@ if(isset($_GET["enviando"])){
       <input type="text" name="alerta" class="form-control" id="idAlerta" placeholder="15" required>
     </div>
   </div>
-  <button class="btn btn-primary" type="submit">Dar ingreso!</button>
+  <button class="btn btn-primary" id="btnSubmit" type="submit">Dar ingreso!</button>
 </form>
 
 </form>
 
+<script>
+
+var categoria = document.querySelector("#idCat").value;
+var marca = document.querySelector("#idMarca").value;
+var modelo = document.querySelector("#idMod").value;
+var notas = document.querySelector("#idNotas").value;
+var stock = document.querySelector("#idStock").value;
+var alerta = document.querySelector("#idAlerta").value;
+var btnSubmit = document.querySelector("#btnSubmit");
+
+btnSubmit.addEventListener("click", () => {
+
+    $.ajax({
+    type: 'POST',
+    url: '../ajax/agregarArticulo.php',
+    data:{
+      'categoria': categoria,
+      'marca': marca,
+      'modelo': modelo,
+      'notas': notas,
+      'stock': stock,
+      'alerta': alerta,
+      },
+    success: function(data){
+
+      }
+    })
+
+
+})
+
+</script>
 
 
 <?php

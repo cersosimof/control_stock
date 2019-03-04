@@ -2,61 +2,97 @@
 
 <?php
 require "componentes/header.php";
-require '../conexion.php';
-$Conn = new Conexion();
-$Conn->CreateConnection();
 ?>
 
+<div style="margin-top: 4%">
+    <div>
+    <ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" href="#" role="tab" data-toggle="tab" id='botonIngresar'>Ingresar</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#" role="tab" data-toggle="tab" id='botonRetirar'>Retirar</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#" role="tab" data-toggle="tab" id='botonConsultar'>Consultar</a>
+  </li>
+</ul>
+    </div>
 
-<!--
-        <div style='margin-top: 2%' class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading">Bienvenido al control de stock. <span class="text-muted">Adri Adri Te ROMPO TODOOOO.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    <form >
+        <div id="cuerpo">
+            <label for="aBuscar">Que buscar</label>
+            <input type="text" id="aBuscar">
+            <h6 id="noRecuerdaCodigo">No recuerda el codigo?</h6>
+
+            <div id="mensajes">
+                <div id="mensaje"></div>
+                <div id="segundoMensaje"></div>
+                <div id="tercerMensaje"></div>
             </div>
-            <div class="col-md-5">
-                <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500"  preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500" src="Photos/tiza.jpg"></img>
+
+            <div id="lugarBoton">
+                <button>Aceptar</button>
             </div>
         </div>
--->
-
-
-<form>
-  <div class="form-row align-items-center">
-
-    <div class="btn-group" role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-secondary" id='botonIngresar'>Ingresar</button>
-    <button type="button" class="btn btn-secondary" id='botonRetirar'>Retirar</button>
-    <button type="button" class="btn btn-secondary" id='botonConsultar'>Consultar</button>
-    </div>
-
-    <div class="col-sm-3 my-1">
-      <div class="input-group">
-        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Username">
-      </div>
-    </div>
-
-    <div class="col-auto my-1">
-      <button type="submit" class="btn btn-primary">BUSCAR</button>
-    </div>
-  </div>
-</form>
-
-
-
-<div id='formulario'>
+    </form>
 </div>
 
-
-
-
-
-<script>
-
-
-
-</script>
 <?php
 require 'componentes/footer.php'
 ?>
+
+<script>
+
+// ############################################################
+// #################   BUSCADOR DE CATEGORIA   ################
+// ############################################################
+
+// CREA PRIMER SELECT
+document.querySelector("#noRecuerdaCodigo").addEventListener("click", (e) => {
+    document.querySelector("#noRecuerdaCodigo").innerHTML = "";
+    e.preventDefault();
+    var resAjax = modeloAJAX('ajax/primerSelect.php', "", '#mensaje');
+} )
+
+// CREA SEGUNDO SELECT
+function enviarPrimerForm(e) {
+    select = document.getElementById("primerSelect");
+    resultadoPrimerSelect = select.options[select.selectedIndex].innerText;
+    var resAjax = modeloAJAX('ajax/segundoSelect.php', {'resultadoPrimerSelect' : resultadoPrimerSelect}, '#segundoMensaje');
+}
+
+// CREA TERCER SELECT
+function enviarSegundoForm(e) {
+    select2 = document.getElementById("segundoSelect");
+    resultadoSegundoSelect = select2.options[select2.selectedIndex].innerText;
+    var resAjax = modeloAJAX('ajax/tercerSelect.php', { 'resultadoPrimerSelect' : resultadoPrimerSelect, 'resultadoSegundoSelect' : resultadoSegundoSelect }, '#tercerMensaje');
+}
+
+function informaClave() {
+    select3 = document.getElementById("tercerSelect");
+    resultadoTercerSelect = select3.options[select3.selectedIndex].innerText;
+    $.ajax({
+        type: 'POST',
+        url: 'ajax/cuartoSelect.php',
+        data: { 'resultadoPrimerSelect' : resultadoPrimerSelect, 'resultadoSegundoSelect' : resultadoSegundoSelect, 'resultadoTercerSelect' : resultadoTercerSelect },
+        success: function(data){
+            document.querySelector("#aBuscar").value = data;
+        }
+    })
+}
+
+// FUNCION QUE RESUME AJAX
+function modeloAJAX(url, data, donde){
+        $.ajax({
+        type: 'POST',
+        url: url,
+        data: data,
+        success:function(res){
+            document.querySelector(donde).innerHTML = res;
+        }
+    })
+}
+</script>
+
 

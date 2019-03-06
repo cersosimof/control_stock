@@ -10,7 +10,7 @@ $buscarCategorias = $instance->ExecuteQuery($sql);
 ?>
 
 <form id="primerForm" name="primerSelectName" action="">
-    <select onchange="enviarPrimerForm()" id="primerSelect" class="custom-select custom-select-lg mb-3">
+    <select onchange="enviarPrimerForm()" id="primerSelect" class="custom-select custom-select-sm">
         <option >Open this select menu</option>
 <?php
 

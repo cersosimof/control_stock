@@ -14,7 +14,7 @@ $buscarCategorias = $instance->ExecuteQuery($sql);
 
 
 <form id="tercerForm" name="tercerSelectName" action="">
-    <select onchange="informaClave()" id="tercerSelect" class="custom-select custom-select-lg mb-3">
+    <select onchange="informaClave()" id="tercerSelect" class="custom-select custom-select-sm">
         <option >Open this select menu</option>
         <?php
 

@@ -1,24 +1,5 @@
-<?php
-require "componentes/header.php";
-?>
-
-<div>
     <div>
-        <ul class="nav nav-tabs" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" role="tab" data-toggle="tab" onclick="llamarCuerpo(this)">Ingresar</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" role="tab" data-toggle="tab" onclick="llamarCuerpo(this)">Retirar</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" role="tab" data-toggle="tab" onclick="llamarCuerpo(this)">Consultar</a>
-            </li>
-        </ul>
-    </div>
-
-    <div id="cuerpo">
-    <form>
+        <form>
             <div class="form-group row">
                 <label for="aBuscar" class="col-sm-2 col-form-label" id="labelClave">Codigo del Articulo</label>
                 <div class="col-sm-10">
@@ -44,13 +25,4 @@ require "componentes/header.php";
 
         </form>
     </div>
-
-</div>
-
-<?php
-require 'componentes/footer.php'
-?>
-<script src="javascripts/script.js"></script>
-
-
 

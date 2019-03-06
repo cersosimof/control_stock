@@ -13,7 +13,7 @@ $buscarCategorias = $instance->ExecuteQuery($sql);
 
 
 <form id="segundoForm" name="segundoSelectName" action="">
-    <select onchange="enviarSegundoForm()" id="segundoSelect" class="custom-select custom-select-lg mb-3">
+    <select onchange="enviarSegundoForm()" id="segundoSelect" class="custom-select custom-select-sm">
         <option >Open this select menu</option>
 
         <?php

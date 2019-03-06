@@ -40,4 +40,4 @@
 <main role="main">
 
 <div class="container marketing">
-<!-- <hr style="margin-top: 6%" class="featurette-divider"> -->
+<hr style="margin-top: 6%" class="featurette-divider">

@@ -115,4 +115,11 @@ body {
   color: red;
 }
 
+#noRecuerdaCodigo {
+  padding-top: 1%;
+}
+#noRecuerdaCodigo:hover {
+  text-decoration-line: underline;
+}
+
 

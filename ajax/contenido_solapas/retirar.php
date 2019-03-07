@@ -1,5 +1,6 @@
-    <div>
+<div>
         <form>
+        <input type="hidden" id="selector" value="retirar">
             <div class="form-group row">
                 <label for="aBuscar" class="col-sm-2 col-form-label" id="labelClave">Codigo del Articulo</label>
                 <div class="col-sm-10">

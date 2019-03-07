@@ -1,16 +1,15 @@
 function llamarCuerpo(obj) {
     if(obj.innerHTML == "Ingresar") {
-        modeloAJAX("ajax/acciones/ingresar.php", "", "#cuerpo");
-        loadScript('javascripts/script.js');
+        modeloAJAX("ajax/contenido_solapas/ingresar.php", "", "#cuerpo");
+        loadScript('javascripts/ingresar_script.js');
     }
     if (obj.innerHTML == "Retirar") {
-        modeloAJAX("ajax/acciones/retirar.php", "", "#cuerpo");
-        loadScript('javascripts/script.js');
+        modeloAJAX("ajax/contenido_solapas/retirar.php", "", "#cuerpo");
     }
     if(obj.innerHTML == "Consultar") {
-        modeloAJAX("ajax/acciones/consultar.php", "", "#cuerpo");
-        loadScript('javascripts/script.js');
+        modeloAJAX("ajax/contenido_solapas/consultar.php", "", "#cuerpo");
     }
+    loadScript('javascripts/script.js');
 }
 
 // ############################################################
@@ -18,7 +17,6 @@ function llamarCuerpo(obj) {
 // ############################################################
 
 // CREA PRIMER SELECT
-
 document.querySelector("#noRecuerdaCodigo").addEventListener("click", () => {
     document.querySelector("#noRecuerdaCodigo").innerHTML = "";
     var resAjax = modeloAJAX('ajax/primerSelect.php', "", '#mensaje');
@@ -39,6 +37,7 @@ function enviarSegundoForm(e) {
     var resAjax = modeloAJAX('ajax/tercerSelect.php', { 'resultadoPrimerSelect' : resultadoPrimerSelect, 'resultadoSegundoSelect' : resultadoSegundoSelect }, '#tercerMensaje');
 }
 
+// INFORMA LA CLAVE
 function informaClave() {
     select3 = document.getElementById("tercerSelect");
     resultadoTercerSelect = select3.options[select3.selectedIndex].innerText;

@@ -1,5 +1,6 @@
 <div>
         <form>
+        <input type="hidden" id="selector" value="consultar">
             <div class="form-group row">
                 <label for="aBuscar" class="col-sm-2 col-form-label" id="labelClave">Codigo del Articulo</label>
                 <div class="col-sm-10">
@@ -12,15 +13,9 @@
                 </div>
                 </div>
             </div>
-            <div class="form-group row" id="divCantidad">
-                <label for="idCantidad" class="col-sm-2 col-form-label" id="labelCantidad">Cantidad a Ingresar</label>
-                <div class="col-sm-10">
-                <input type="text" class="form-control" id="idCantidad">
-                </div>
-            </div>
 
             <div id="lugarBoton">
-                <button class="btn btn-success" id="botonSubmit">Ingresar</button>
+                <button class="btn btn-success" id="botonSubmit">Consultar Stock</button>
             </div>
 
         </form>

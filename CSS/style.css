@@ -122,4 +122,11 @@ body {
   text-decoration-line: underline;
 }
 
+.cuadroDerecha {
+  border: 1px solid #dee2e6;
+  padding: 3%;
+  border-radius: .25rem;
+  background-color: #dee2e6
+}
+
 

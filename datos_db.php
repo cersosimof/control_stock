@@ -3,5 +3,5 @@
 define('HOST', 'localhost');
 define('USER', 'root');
 define('PASSWORD', '');
-define('DATABASE', 'stock');
+define('DATABASE', 'control_stock');
 ?>

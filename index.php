@@ -2,7 +2,6 @@
 require "componentes/header.php";
 ?>
 
-
 <div class="row">
     <div class="col-10">
         <ul class="nav nav-tabs" role="tablist">
@@ -30,6 +29,7 @@ require "componentes/header.php";
 <?php
 require 'componentes/footer.php'
 ?>
+
 <script>
 function modeloAJAX(url, data, donde){
         $.ajax({
@@ -48,9 +48,9 @@ function loadScript (fileurl) {
     document.body.append(script);
   }
 
-        modeloAJAX("ajax/contenido_solapas/ingresar.php", "", "#cuerpo");
-        loadScript('javascripts/script.js');
-        loadScript('javascripts/ingresar_script.js');
+modeloAJAX("ajax/contenido_solapas/ingresar.php", "", "#cuerpo");
+loadScript('javascripts/script.js');
+loadScript('javascripts/ingresar_script.js');
 </script>
 
 

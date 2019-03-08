@@ -1,26 +1,7 @@
 <?php
 
 require "../componentes/header.php";
-require "../modelos/articulo.php";
 
-
-// if($conn) {
-//   echo "Se establecio conexion";
-// }
-
-if(isset($_GET["enviando"])){
-  
-  $categoria = $_POST["categoria"];
-	$marca = $_POST["marca"];
-	$modelo = $_POST["modelo"];
-	$notas = $_POST["notas"];
-	$stockInicial = $_POST["stockInicial"];
-  $alerta = $_POST["alerta"]; 
-  
-  $articuloCreado = new Articulo();
-  $result = $articuloCreado->altaArticulo($categoria, $marca, $modelo, $notas, $stockInicial, $alerta);
-  echo $result;
-}
 
 
 ?>
@@ -63,17 +44,21 @@ if(isset($_GET["enviando"])){
 
 </form>
 
+<?php require "../componentes/footer.php"; ?>
+
 <script>
 
-var categoria = document.querySelector("#idCat").value;
-var marca = document.querySelector("#idMarca").value;
-var modelo = document.querySelector("#idMod").value;
-var notas = document.querySelector("#idNotas").value;
-var stock = document.querySelector("#idStock").value;
-var alerta = document.querySelector("#idAlerta").value;
+
 var btnSubmit = document.querySelector("#btnSubmit");
 
-btnSubmit.addEventListener("click", () => {
+btnSubmit.addEventListener("click", (e) => {
+  e.preventDefault();
+  var categoria = document.querySelector("#idCat").value;
+  var marca = document.querySelector("#idMarca").value;
+  var modelo = document.querySelector("#idMod").value;
+  var notas = document.querySelector("#idNotas").value;
+  var stock = document.querySelector("#idStock").value;
+  var alerta = document.querySelector("#idAlerta").value;
 
     $.ajax({
     type: 'POST',
@@ -87,7 +72,12 @@ btnSubmit.addEventListener("click", () => {
       'alerta': alerta,
       },
     success: function(data){
-
+      if(data == 1) {
+        alert("el articulo se dio de alta correctamtente"),
+        window.location.href = "../";
+      } else {
+        alert("hubo un problema, reintente")
+      }
       }
     })
 
@@ -96,7 +86,3 @@ btnSubmit.addEventListener("click", () => {
 
 </script>
 
-
-<?php
-
-require "../componentes/footer.php";

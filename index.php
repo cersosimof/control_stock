@@ -24,6 +24,7 @@ require "componentes/header.php";
         <p>Alerta</p>
     </div>
 </div>
+<div id="lugarModal"></div>
 
 
 <?php

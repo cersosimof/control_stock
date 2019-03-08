@@ -45,6 +45,15 @@ class Articulo {
 
         $sql2 = "UPDATE articulos SET stockInicial = '$nuevoStock' WHERE id_articulo = '$id_articulo'";
         $conn2 = $instance->ExecuteQuery($sql2);
+        
+        if($conn2 == 1) {
+            $sql3 = "SELECT stockInicial FROM articulos WHERE id_articulo = '$id_articulo' ";
+            $conn3 = $instance->ExecuteQuery($sql3);
+    
+            $row3 = $conn3->fetch_assoc();
+            $nuevoStock3 = $row3['stockInicial'];
+            return $nuevoStock3;
+        }
 
     }
 

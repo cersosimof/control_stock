@@ -11,7 +11,11 @@ botonSubmit.addEventListener("click", (e) => {
         url: "ajax/ajax_acciones/ingresar.php",
         data: {'aBuscar' : aBuscar, 'cantidad' : cantidad },
         success:function(res){
-            console.log(res)
+            document.querySelector("#lugarModal").innerHTML = res;
+
+            $('#exampleModal').modal('show')
         }
     })
+    aBuscar = "";
+    cantidad = "";
 })

@@ -2,57 +2,132 @@
 require "componentes/header.php";
 ?>
 
-<div class="row">
-    <div class="col-10">
-        <ul class="nav nav-tabs" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" role="tab" data-toggle="tab" onclick="llamarCuerpo(this)">Ingresar</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" role="tab" data-toggle="tab" onclick="llamarCuerpo(this)">Retirar</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" role="tab" data-toggle="tab" onclick="llamarCuerpo(this)">Consultar</a>
-            </li>
-        </ul>
+<div class="bd-example bd-example-tabs">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active show" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Ingresar</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Entregar</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Consultar</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade  active show" id="home" role="tabpanel" aria-labelledby="home-tab">
 
-        <div id="cuerpo">
+    <!-- INGRESAR -->
+    <div id="cuerpo">
+        <form>
+            <div class="form-group row">
+                <label for="aBuscar" class="col-sm-2 col-form-label" id="labelClave">Codigo del Articulo</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control" id="_ingresar">
+                <h6 id="noRecuerdaCodigo" onclick='abrirForm("_ingresar")'>No recuerda el codigo?</h6>
+                
+                <div id="mensajes_ingresar">
+                    <div id="mensaje_ingresar"></div>
+                    <div id="segundoMensaje_ingresar"></div>
+                    <div id="tercerMensaje_ingresar"></div>
+                </div>
 
-        </div>
+                </div>
+            </div>
+            <div class="form-group row" id="divCantidad">
+                <label for="idCantidad" class="col-sm-2 col-form-label" id="labelCantidad">Cantidad a Ingresar</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control" id="cantidad_ingresar">
+                </div>
+            </div>
+
+            <div id="lugarBoton">
+                <button class="btn btn-success" id="bsi">Ingresar</button>
+            </div>
+        </form>
     </div>
-    <div class="col-2 cuadroDerecha">
-        <p>Alerta</p>
+    <!-- INGRESAR -->
+
     </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+    <!-- ENTREGAR -->
+    <div id="cuerpo">
+        <form>
+            <div class="form-group row">
+                <label for="aBuscar" class="col-sm-2 col-form-label">Codigo del Articulo</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control" id="_entregar">
+
+                <h6 id="noRecuerdaCodigo" onclick='abrirForm("_entregar")'>No recuerda el codigo?</h6>
+
+                    <div id="mensajes_entregar">
+                        <div id="mensaje_entregar"></div>
+                        <div id="segundoMensaje_entregar"></div>
+                        <div id="tercerMensaje_entregar"></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="idCantidad" class="col-sm-2 col-form-label">Cantidad a retirar</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control" id="cantidad_entregar">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="idDestino" class="col-sm-2 col-form-label">Destinatario</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control" id="idDestino">
+                </div>
+            </div>       
+            <div id="lugarBoton">
+                <button class="btn btn-danger" id="bse">Entregar</button>
+            </div>
+        </form>
+    </div>
+    <!-- ENTREGAR -->
+
+    </div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+    <!-- CONSULTAR -->
+    <div id="cuerpo">
+        <form>
+        <input type="hidden" id="selector" value="consultar">
+            <div class="form-group row">
+                <label for="aBuscar" class="col-sm-2 col-form-label" id="labelClave">Codigo del Articulo</label>
+                <div class="col-sm-10">
+                <input type="email" class="form-control" id="_consultar">
+                <h6 id="noRecuerdaCodigo" onclick='abrirForm("_consultar")'>No recuerda el codigo?</h6>
+
+                
+                <div id="mensajes_consultar">
+                    <div id="mensaje_consultar"></div>
+                    <div id="segundoMensaje_consultar"></div>
+                    <div id="tercerMensaje_consultar"></div>
+                </div>
+                </div>
+            </div>
+            <div id="lugarBoton">
+                <button class="btn btn-success" id="botonSubmit">Consultar Stock</button>
+            </div>
+        </form>
+    </div>
+    <!-- CONSULTAR -->
+
+    </div>
+  </div>
 </div>
+
 <div id="lugarModal"></div>
+
 
 
 <?php
 require 'componentes/footer.php'
 ?>
 
-<script>
-function modeloAJAX(url, data, donde){
-        $.ajax({
-        type: 'POST',
-        url: url,
-        data: data,
-        success:function(res){
-            document.querySelector(donde).innerHTML = res;
-        }
-    })
-}
-
-function loadScript (fileurl) {
-    let script = document.createElement('script');
-    script.src = fileurl;
-    document.body.append(script);
-  }
-
-modeloAJAX("ajax/contenido_solapas/ingresar.php", "", "#cuerpo");
-loadScript('javascripts/script.js');
-loadScript('javascripts/ingresar_script.js');
-</script>
-
+<script src='javascripts/script_opciones.js'></script>
+<script src='javascripts/script_acciones.js'></script>
 
 

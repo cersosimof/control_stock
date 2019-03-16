@@ -129,4 +129,8 @@ body {
   background-color: #dee2e6
 }
 
-
+.campoOpcion {
+  margin-bottom: 1%;
+  padding-left: 4%;
+  padding-right: 4%;
+}

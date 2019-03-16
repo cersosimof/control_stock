@@ -1,6 +1,6 @@
 <?php 
 
-require '../ConnectDb.php';
+require '../../ConnectDb.php';
 $instance = ConnectDb::getInstance();
 $conn = $instance->getConnection();
 

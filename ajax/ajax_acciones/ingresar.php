@@ -22,8 +22,8 @@ $result = $articuloCreado->aumentarCantidad($aBuscar, $cantidad);
         La nueva cantidad en stock es de <?php echo $result; ?>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" onclick="postBoton()" class="btn btn-secondary" data-dismiss="modal">OK</button>
+
       </div>
     </div>
   </div>

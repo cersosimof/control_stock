@@ -31,8 +31,7 @@ $result = $articuloCreado->reducirCantidad($aBuscar, $cantidad);
         
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" onclick="postBoton()" class="btn btn-secondary" data-dismiss="modal">OK</button>
       </div>
     </div>
   </div>

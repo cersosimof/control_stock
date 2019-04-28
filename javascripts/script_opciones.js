@@ -1,16 +1,5 @@
 
 
-
-
-
-
-
-
-
-
-
-
-
 /* Creador de los Select para busqueda de categoria */
 function abrirForm(indicador) {
         document.querySelector("#noRecuerdaCodigo").innerHTML = "";
@@ -37,11 +26,41 @@ function informaClave(indicador) {
         url: 'ajax/buscar_articulo/cuartoSelect.php',
         data: { 'resultadoPrimerSelect' : resultadoPrimerSelect, 'resultadoSegundoSelect' : resultadoSegundoSelect, 'resultadoTercerSelect' : resultadoTercerSelect },
         success: function(data){
-            document.querySelector("#"+indicador).value = data;
-            document.querySelector("#mensajes"+indicador).innerHTML = "";
+                document.querySelector("#"+indicador).value = data;
+                document.querySelector("#mensajes"+indicador).innerHTML = "";
+                transformar(indicador);
         }
     })
 }
+
+/*
+Funcion para personalizar el estilo 
+una vez cargado el valor
+*/
+
+function transformar(accion)
+{
+    var valor = document.querySelector("#"+accion).value;
+    if(valor != "")
+    {
+        $.ajax({
+            type: 'POST',
+            url: 'ajax/funcionTransformar.php',
+            data: { 'idEmpresa' : valor },
+            success: function(data){
+                console.log(data);
+                document.querySelector("#info"+accion).innerHTML = data;
+            }
+        })
+    }
+    else
+    {
+        console.log("El campo estaba vacio");
+    }
+
+//    alert("Bienvenido a la funcion transformar")
+}
+
 
 // FUNCION QUE RESUME AJAX
 function modeloAJAX(url, data, donde){
@@ -58,9 +77,6 @@ function modeloAJAX(url, data, donde){
         }
     })
 }
-
-
-
 
 // function loadScript (fileurl) {
 //     let script = document.createElement('script');

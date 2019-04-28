@@ -20,10 +20,11 @@ require "componentes/header.php";
     <!-- INGRESAR -->
     <div id="cuerpo">
         <form>
+            <div id="info_ingresar"></div>
             <div class="form-group row">
                 <label for="aBuscar" class="col-sm-2 col-form-label" id="labelClave">Codigo del Articulo</label>
                 <div class="col-sm-10">
-                <input type="text" class="form-control" id="_ingresar">
+                <input type="text" class="form-control" id="_ingresar" onblur="transformar('_ingresar')">
                 <h6 id="noRecuerdaCodigo" onclick='abrirForm("_ingresar")'>No recuerda el codigo?</h6>
                 
                 <div id="mensajes_ingresar">
@@ -54,10 +55,11 @@ require "componentes/header.php";
     <!-- ENTREGAR -->
     <div id="cuerpo">
         <form>
+            <div id="info_entregar"></div>
             <div class="form-group row">
                 <label for="aBuscar" class="col-sm-2 col-form-label">Codigo del Articulo</label>
                 <div class="col-sm-10">
-                <input type="text" class="form-control" id="_entregar">
+                <input type="text" class="form-control" id="_entregar" onblur="transformar('_entregar')">
 
                 <h6 id="noRecuerdaCodigo" onclick='abrirForm("_entregar")'>No recuerda el codigo?</h6>
 
@@ -92,12 +94,13 @@ require "componentes/header.php";
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
     <!-- CONSULTAR -->
     <div id="cuerpo">
+        <div id="info_consultar"></div>
         <form>
         <input type="hidden" id="selector" value="consultar">
             <div class="form-group row">
                 <label for="aBuscar" class="col-sm-2 col-form-label" id="labelClave">Codigo del Articulo</label>
                 <div class="col-sm-10">
-                <input type="email" class="form-control" id="_consultar">
+                <input type="text" class="form-control" id="_consultar" onblur="transformar('_consultar')">
                 <h6 id="noRecuerdaCodigo" onclick='abrirForm("_consultar")'>No recuerda el codigo?</h6>
 
                 
@@ -108,9 +111,9 @@ require "componentes/header.php";
                 </div>
                 </div>
             </div>
-            <div id="lugarBoton">
+            <!-- <div id="lugarBoton">
                 <button class="btn btn-success" id="botonSubmit">Consultar Stock</button>
-            </div>
+            </div> -->
         </form>
     </div>
     <!-- CONSULTAR -->
@@ -120,6 +123,7 @@ require "componentes/header.php";
 </div>
 
 <div id="lugarModal"></div>
+
 
 
 

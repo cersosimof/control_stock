@@ -48,31 +48,36 @@ class Articulo {
         
         if($conn2 == 1) {
             return $nuevoStock;
-
         }
 
     }
 
-    function reducirCantidad($id_articulo, $cantidad) {
+    function reducirCantidad($id_articulo, $cantidad) 
+    {
         require '../../ConnectDb.php';
         $instance = ConnectDb::getInstance();
+
         // CALCULA EL STOCK INICIAL DEL ARTICULO Y LO GUARDA EN LA FUNCION $nuevoStock
         $sql = "SELECT stockInicial FROM articulos WHERE id_articulo = '$id_articulo' ";
         $conn = $instance->ExecuteQuery($sql);
         $row = $conn->fetch_assoc();
-        $nuevoStock = $row['stockInicial'];
+        $stockActual = $row['stockInicial'];
+
         //SI LA CANTIDAD QUE SE QUIERE SACAR ES MAYOR QUE LA QUE TIENE EN STOCK ENVIA MENSAJE 
-        if($nuevoStock < $cantidad) {
+        if($stockActual < $cantidad) 
+        {
             return "supera";
-        } else {
-        //SINO RESTA LA CANTIDAD AL STOCK QUE TIENE Y ACTUALIZA EL MISMO
-        $nuevoStock = $row['stockInicial'] - $cantidad;
-        $sql2 = "UPDATE articulos SET stockInicial = '$nuevoStock' WHERE id_articulo = '$id_articulo'";
-        $conn2 = $instance->ExecuteQuery($sql2);
-        
-        if($conn2 == 1) {
-            return $nuevoStock;
-        }
+        } 
+        else 
+        {
+            //SINO RESTA LA CANTIDAD AL STOCK QUE TIENE Y ACTUALIZA EL MISMO
+            $stockActual = $row['stockInicial'] - $cantidad;
+            $sql2 = "UPDATE articulos SET stockInicial = '$stockActual' WHERE id_articulo = '$id_articulo'";
+            $conn2 = $instance->ExecuteQuery($sql2);
+            if($conn2 == 1) 
+            {
+                return $stockActual;
+            }
         }
     }
 

@@ -1,23 +1,21 @@
+/* 
+Creador de los Select para busqueda de categoria 
+*/
 
-
-/* Creador de los Select para busqueda de categoria */
 function abrirForm(indicador) {
         document.querySelector("#noRecuerdaCodigo").innerHTML = "";
         modeloAJAX('ajax/buscar_articulo/primerSelect.php', {'indicador' : indicador }, '#mensaje'+indicador);
 }
-
 function enviarPrimerForm(indicador) {
     select = document.getElementById("primerSelect");
     resultadoPrimerSelect = select.options[select.selectedIndex].innerText;
     modeloAJAX('ajax/buscar_articulo/segundoSelect.php', {'indicador' : indicador, 'resultadoPrimerSelect' : resultadoPrimerSelect}, '#segundoMensaje'+indicador);
 }
-
 function enviarSegundoForm(indicador) {
     select2 = document.getElementById("segundoSelect");
     resultadoSegundoSelect = select2.options[select2.selectedIndex].innerText;
      modeloAJAX('ajax/buscar_articulo/tercerSelect.php', { 'indicador' : indicador, 'resultadoPrimerSelect' : resultadoPrimerSelect, 'resultadoSegundoSelect' : resultadoSegundoSelect }, '#tercerMensaje'+indicador);
 }
-
 function informaClave(indicador) {
     select3 = document.getElementById("tercerSelect");
     resultadoTercerSelect = select3.options[select3.selectedIndex].innerText;
@@ -53,10 +51,10 @@ function transformar(accion)
             }
         })
     }
-    else
-    {
-        console.log("El campo estaba vacio");
-    }
+    // else
+    // {
+    //     console.log("El campo estaba vacio");
+    // }
 
 //    alert("Bienvenido a la funcion transformar")
 }

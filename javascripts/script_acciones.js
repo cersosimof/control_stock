@@ -6,7 +6,7 @@ botonSubmitIngresar.addEventListener("click", (e) => {
     e.preventDefault();
     aBuscar = document.querySelector("#_ingresar").value;
     cantidad = document.querySelector("#cantidad_ingresar").value;
-
+    console.log('apretaste el boton enviar');
     $.ajax({
         type: 'POST',
         url: "ajax/ajax_acciones/ingresar.php",
@@ -38,5 +38,5 @@ botonSubmitEntregar.addEventListener("click", (e) => {
 })
 
 function postBoton() {
-    location.href = "/control_stock";
+    location.href = "/";
 }

@@ -7,9 +7,9 @@ class ConnectDb {
   private $conn;
   
   private $host = 'localhost';
-  private $user = 'root';
-  private $pass = '';
-  private $database = 'stock';
+  private $user = 'id9477821_cersosimof';
+  private $pass = 'Fender11';
+  private $database = 'id9477821_maestro_stock';
    
   // The db connection is established in the private constructor.
   private function __construct()

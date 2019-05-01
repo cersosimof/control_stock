@@ -1,6 +1,40 @@
-<?php
-require "componentes/header.php";
-?>
+<html>
+
+<head>
+<title> CONTROL DE STOCK </title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="../../control_stock/CSS/style.css"> -->
+<link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="/">Inventario</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/vistas/alta.php">Alta</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/vistas/baja.php">Baja</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/vistas/modif.php">Modificar</a>
+            </li>
+        </ul>
+        </div>
+    </nav>
+</header>
+
+<main role="main">
+
+<div class="container marketing">
+<hr style="margin-top: 6%" class="featurette-divider">
 
 <div class="bd-example bd-example-tabs">
   <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -125,13 +159,71 @@ require "componentes/header.php";
 <div id="lugarModal"></div>
 
 
+</div>
 
+<hr class="featurette-divider">
 
-<?php
-require 'componentes/footer.php'
-?>
+<footer class="container">
+  <p class="float-right"><a href="#">Back to top</a></p>
+  <p>© 2019 ChersoFM.     <!-- <a href="#">Privacy</a> · <a href="#">Terms</a> --> </p>
+</footer>
+
+</main>
+<script src="javascripts/jquery.js"></script> 
+<!-- <script src="../../control_stock/javascripts/jquery.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>
 
 <script src='javascripts/script_opciones.js'></script>
 <script src='javascripts/script_acciones.js'></script>
+
+<!-- <script>
+
+var botonSubmitIngresar = document.querySelector("#bsi")
+var botonSubmitEntregar = document.querySelector("#bse")
+
+//INGRESAR
+botonSubmitIngresar.addEventListener("click", (e) => {
+    e.preventDefault();
+    aBuscar = document.querySelector("#_ingresar").value;
+    cantidad = document.querySelector("#cantidad_ingresar").value;
+    console.log('apretaste el boton enviar');
+    $.ajax({
+        type: 'POST',
+        url: "ajax/ajax_acciones/ingresar.php",
+        data: {'aBuscar' : aBuscar, 'cantidad' : cantidad },
+        success:function(res){
+            document.querySelector("#lugarModal").innerHTML = res;
+            $('#exampleModal').modal('show')
+        }
+    })
+})
+
+//ENTREGAR
+botonSubmitEntregar.addEventListener("click", (e) => {
+    e.preventDefault();
+    var aBuscar = document.querySelector("#_entregar").value;
+    var cantidad = document.querySelector("#cantidad_entregar").value;
+    // var destino = document.querySelector("#idDestino").value;
+
+    $.ajax({
+        type: 'POST',
+        url: "ajax/ajax_acciones/retirar.php",
+        data: {'aBuscar' : aBuscar, 'cantidad' : cantidad },
+        success:function(res){
+            document.querySelector("#lugarModal").innerHTML = res;
+            $('#exampleModal').modal('show')
+        }
+    })
+
+})
+
+function postBoton() {
+    location.href = "/";
+}
+
+</script> -->
 
 

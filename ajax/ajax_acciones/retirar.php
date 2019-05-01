@@ -1,6 +1,6 @@
 <?php
-require "../../../control_stock/modelos/articulo.php";
-
+require "../../../modelos/articulo.php";
+// require "../../../control_stock/modelos/articulo.php";
 $aBuscar = $_POST["aBuscar"];
 $cantidad = $_POST["cantidad"];
 // $destino = $_POST["destino"];

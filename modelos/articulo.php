@@ -1,6 +1,5 @@
 <?php
 
-
 class Articulo {
 
     // PROPIEDADES
@@ -54,7 +53,7 @@ class Articulo {
 
     function reducirCantidad($id_articulo, $cantidad) 
     {
-        require '../../ConnectDb.php';
+        require '../ConnectDb.php';
         $instance = ConnectDb::getInstance();
 
         // CALCULA EL STOCK INICIAL DEL ARTICULO Y LO GUARDA EN LA FUNCION $nuevoStock

@@ -4,7 +4,8 @@
 <title> CONTROL DE STOCK </title>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-<link rel="stylesheet" href="../../control_stock/CSS/style.css">
+<!-- <link rel="stylesheet" href="../../control_stock/CSS/style.css"> -->
+<link rel="stylesheet" href="../../CSS/style.css">
 </head>
 
 <body>
@@ -17,13 +18,16 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/control_stock/vistas/alta.php">Alta</a>
+                <a class="nav-link" href="/vistas/alta.php">Alta</a>
+                <!-- <a class="nav-link" href="/control_stock/vistas/alta.php">Alta</a> -->
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/control_stock/vistas/baja.php">Baja</a>
+                <!-- <a class="nav-link" href="/control_stock/vistas/baja.php">Baja</a> -->
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/control_stock/vistas/modif.php">Modificar</a>
+                <!-- <a class="nav-link" href="/control_stock/vistas/modif.php">Modificar</a> -->
             </li>
         </ul>
         </div>

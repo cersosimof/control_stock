@@ -1,8 +1,14 @@
 <?php
 
-require "../componentes/header.php";
+require '../componentes/header.php';
+
+?>
+
+<p>ESTE ES EL MOFIDICAR</p>
 
 
-echo 'modif';
+<?php
 
-require "../componentes/footer.php";
+require 'componentes/footer.php';
+
+?>

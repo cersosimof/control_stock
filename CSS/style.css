@@ -99,3 +99,38 @@ body {
       width: 200px;
   }
 
+/* MIS ESTILOs */
+
+#cuerpo {
+  border: 1px solid #dee2e6;
+  padding: 3%;
+  border-top: 0px solid black;
+  border-bottom-left-radius: .25rem;
+  border-bottom-right-radius: .25rem;
+  border-top-right-radius: .25rem;
+  };
+
+.nav-link {
+  text-decoration: none;
+  color: red;
+}
+
+#noRecuerdaCodigo {
+  padding-top: 1%;
+}
+#noRecuerdaCodigo:hover {
+  text-decoration-line: underline;
+}
+
+.cuadroDerecha {
+  border: 1px solid #dee2e6;
+  padding: 3%;
+  border-radius: .25rem;
+  background-color: #dee2e6
+}
+
+.campoOpcion {
+  margin-bottom: 1%;
+  padding-left: 4%;
+  padding-right: 4%;
+}

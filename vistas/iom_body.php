@@ -98,8 +98,8 @@
             <div class="form-group row">
                 <label for="aBuscar" class="col-sm-2 col-form-label" id="labelClave">Codigo del Articulo</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="_consultar">
-                    <!-- <input type="text" class="form-control" id="_consultar" onblur="transformar('_consultar')"> -->
+                    <!-- <input type="text" class="form-control" id="_consultar"> -->
+                    <input type="text" class="form-control" id="_consultar" onblur="transformar('_consultar')">
                     <h6 id="noRecuerdaCodigo_consultar" onclick='abrirForm("_consultar")'>No recuerda el codigo?</h6>
                     <div id="mensajes_consultar">
                         <div id="mensaje_consultar"></div>

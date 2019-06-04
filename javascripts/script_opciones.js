@@ -26,12 +26,8 @@ function informaClave(indicador) {
         success: function(data){
                 document.querySelector("#"+indicador).value = data;
                 document.querySelector("#mensajes"+indicador).innerHTML = "";
+                var id = data;
                 transformar(indicador);
-                //Funcion que crea el boton de mas info.
-                if(indicador == "_consultar")
-                {
-                    document.querySelector("#noRecuerdaCodigo"+indicador).innerHTML = "<div onclick='movimientos("+data+")' id='masInfo'>+ Info</div>";
-                }
         }
     })
 }
@@ -53,8 +49,9 @@ Funcion para personalizar el estilo
 una vez cargado el valor
 */
 
-function transformar(accion)
+function transformar(accion) //_algo
 {
+
     var valor = document.querySelector("#"+accion).value;
     if(valor != "")
     {
@@ -63,16 +60,22 @@ function transformar(accion)
             url: 'ajax/funcionTransformar.php',
             data: { 'idEmpresa' : valor },
             success: function(data){
-            document.querySelector("#info"+accion).innerHTML = data;
+            document.querySelector("#info"+accion).innerHTML = data; //id
             }
         })
     }
+    if(accion == "_consultar")
+    {
+        document.querySelector("#noRecuerdaCodigo"+accion).innerHTML = "<div onclick='movimientos("+valor+")' id='masInfo'>+ Info</div>";
+
+    }
+    
 }
 
 
 // FUNCION QUE RESUME AJAX
 function modeloAJAX(url, data, donde){
-    document.querySelector(donde).innerHTML = 
+    document.querySelector(donde).innerHTML = '' +
     '<div class="spinner-border" role="status">' +
     '<span class="sr-only">Loading...</span></div>'  
 

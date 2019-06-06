@@ -36,5 +36,13 @@ $codigo = $buscarCategorias->fetch_assoc();
     </div>
 
 <?php 
-} 
+}
+else 
+{
+    ?>
+    <div class="alert alert-danger" role="alert">
+        Cuidado!, el codigo de articulo <?php echo $idEmpresa ?> no existe. Intente nuevamente.
+    </div>
+  <?php
+}
 ?>

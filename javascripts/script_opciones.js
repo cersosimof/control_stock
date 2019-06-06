@@ -44,6 +44,7 @@ function movimientos(a)
     })
     
 }
+
 /*
 Funcion para personalizar el estilo 
 una vez cargado el valor
@@ -51,25 +52,25 @@ una vez cargado el valor
 
 function transformar(accion) //_algo
 {
-
     var valor = document.querySelector("#"+accion).value;
     if(valor != "")
+
     {
         $.ajax({
             type: 'POST',
             url: 'ajax/funcionTransformar.php',
             data: { 'idEmpresa' : valor },
             success: function(data){
-            document.querySelector("#info"+accion).innerHTML = data; //id
+
+            document.querySelector("#info"+accion).innerHTML = data; //todo el html de los forms readonly O ALERTA!
             }
         })
     }
-    if(accion == "_consultar")
+    if(accion == "_consultar" &&    )
     {
         document.querySelector("#noRecuerdaCodigo"+accion).innerHTML = "<div onclick='movimientos("+valor+")' id='masInfo'>+ Info</div>";
 
     }
-    
 }
 
 
